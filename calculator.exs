@@ -39,15 +39,41 @@ defmodule Calculator do
   
 
   def minus([head | tail]) do
-    plus(head, tail)
+    minus(head, tail)
   end
 
   def minus(n, []) do
-    IO.puts(n)
+    IO.puts("The result is: #{n}")
   end
 
   def minus(n, [head | tail]) do
     minus(n-head, tail)
+  end
+  
+
+  def multiply(list) do
+    multiply(1, list)
+  end
+
+  def multiply(n, []) do
+    IO.puts("The result is: #{n}")
+  end
+
+  def multiply(n, [head | tail]) do
+    multiply(n * head, tail)
+  end
+
+
+  def divide([head | tail]) do
+    divide(head, tail)
+  end
+
+  def divide(n, []) do
+    IO.puts("The result is: #{n}")
+  end
+
+  def divide(n, [head | tail]) do
+    divide(n/head, tail)
   end
 end
 
@@ -59,6 +85,8 @@ IO.inspect(stNumOfNums)
 
 numOfNum = String.to_integer(stNumOfNums)
 lis = Calculator.readNumbers(numOfNum)
-Calculator.outputNums(lis)
+#Calculator.outputNums(lis)
 Calculator.plus(lis)
 Calculator.minus(lis)
+Calculator.multiply(lis)
+Calculator.divide(lis)
