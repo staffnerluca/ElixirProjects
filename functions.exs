@@ -36,6 +36,8 @@ defmodule Functions do
   def double_each([]) do
     []
   end
+
+  my_func_as_variable = fn(
 end
 
 IO.puts Functions.luggi?(1)

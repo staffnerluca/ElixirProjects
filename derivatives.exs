@@ -19,4 +19,5 @@ end
 term = IO.gets "Geben Sie den Term ein, den Sie ableiten wollen: "
 dNum = IO.gets "Zu welchem Grad wollen Sie ableiten? "
 IO.puts "#{term} und #{dNum}"
+IO.puts String.split(term, "+")
 get_derivative(term, dNum)
