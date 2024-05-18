@@ -81,12 +81,22 @@ end
 stNumOfNums = IO.gets("number of numbers: ") 
 |> String.trim()
 |> String.replace("\n", "", global: true)
-IO.inspect(stNumOfNums)
 
 numOfNum = String.to_integer(stNumOfNums)
 lis = Calculator.readNumbers(numOfNum)
 #Calculator.outputNums(lis)
-Calculator.plus(lis)
-Calculator.minus(lis)
-Calculator.multiply(lis)
-Calculator.divide(lis)
+type = IO.gets("+; -; *; /: ")
+|> String.trim() 
+|> String.replace("\n", "", global: true)
+IO.inspect(type) 
+cond do
+  type == "+" ->
+    Calculator.plus(lis)
+  type == "-" ->
+    Calculator.minus(lis)
+  type == "*" ->
+    Calculator.multiply(lis)
+  type == "/" ->
+    Calculator.divide(lis)
+end  
+IO.puts("#########################")
