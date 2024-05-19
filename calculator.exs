@@ -75,6 +75,36 @@ defmodule Calculator do
   def divide(n, [head | tail]) do
     divide(n/head, tail)
   end
+
+
+  def calculate(lis, sign) do
+    cond do
+      sign == "+" ->
+        calculate(0, lis, sign)
+      sign == "*" ->
+        calculate(1, lis, sign)
+      sign == "-" or sign == "/" ->
+        calculate(hd(lis), tl(lis), sign)
+    end
+  end
+
+
+  def calculate(n, [], _sign) do
+    IO.puts "The result is #{n}"
+  end
+
+  def calculate(n, [head | tail], sign) do
+    cond do
+      sign == "+" ->
+        calculate(n+head, tail, sign)
+      sign == "-" ->
+        calculate(n-head, tail, sign)
+      sign == "*" ->
+        calculate(n*head, tail, sign)
+      sign == "/" ->
+        calculate(n/head, tail, sign)
+    end
+  end
 end
 
 
@@ -100,3 +130,4 @@ cond do
     Calculator.divide(lis)
 end  
 IO.puts("#########################")
+Calculator.calculate(lis, type)
